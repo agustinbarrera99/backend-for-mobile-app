@@ -4,7 +4,7 @@ import mongoosePaginate from "mongoose-paginate-v2"
 const collection = "users";
 
 const schema = new Schema({
-  userName: { type: String, required: true, index: true },
+  username: { type: String, required: true, index: true },
   email: { type: String, required: true, unique: true, index: true },
   password: { type: String, required: true },
   photo: {
