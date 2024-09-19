@@ -41,9 +41,9 @@ class SessionsController {
           response: "la contraseña o el usuario no coinciden",
         });
       user.password = null;
-      user._id = null;
       const token = jwt.sign(
         {
+          _id: user._id,
           username: user.username,
           email: user.email,
           photo: user.photo,

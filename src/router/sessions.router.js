@@ -6,6 +6,6 @@ const sessionsRouter = Router()
 
 sessionsRouter.post("/register",register)
 sessionsRouter.post("/login", login)
-sessionsRouter.post("/signout",signout)
+sessionsRouter.post("/signout",authenticateUser,signout)
 
 export default sessionsRouter

@@ -24,11 +24,6 @@ class MongoManager {
     async readOne(id) {
         try {
             const response = await this.model.findById(id)
-            if(!response) {
-                const error = new Error("no se encontro el recurso!")
-                error.statusCode = 404
-                throw error
-            }
             return response
         } catch (error) {
             throw error
@@ -47,11 +42,6 @@ class MongoManager {
         try {
             const opt = {new: true}
             const response = await this.model.findByIdAndUpdtate(id, data, opt)
-            if(!response) {
-                const error = new Error("no se encontro recurso a actualizar!")
-                error.statusCode = 404
-                throw error
-            }
             return response
         } catch (error) {
             throw error
