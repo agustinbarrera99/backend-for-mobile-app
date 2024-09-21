@@ -6,6 +6,7 @@ import { pathHandler } from "./src/middlewares/pathHandler.js";
 import __dirname from "./utils.js";
 import morgan from "morgan";
 import { dbConnection } from "./src/utils/dbConnection.util.js";
+import cors from "cors"
 
 const server = express();
 
@@ -15,6 +16,10 @@ const ready = () => {
   dbConnection()
 };
 server.use(express.json());
+server.use(cors({
+  origin: true,
+  credentials: true
+}));
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(__dirname + "/public"));
 server.use(morgan("dev"));
