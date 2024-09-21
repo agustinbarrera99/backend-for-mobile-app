@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema, Types } from "mongoose";
 import mongoosePaginate from "mongoose-paginate-v2"
 
 const collection = "users";
@@ -20,6 +20,8 @@ const schema = new Schema({
       score: { type: Number, min: 0, max: 5, required: true }, 
     }
   ],
+  phone: {type: String, required: true},
+  favoriteProducts: [{ type: Types.ObjectId, ref: "products" }]
 },{timestamps: true});
 
 schema.plugin(mongoosePaginate)
